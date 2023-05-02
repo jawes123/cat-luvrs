@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Register.css";
 import logo from "./logo.png";
+import axios from "axios";
+import {Redirect} from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -79,6 +81,22 @@ const Register = () => {
       )}`
     );
     // add code to send the login data to the server here
+    let fData = new FormData()
+    fData.append('user', username)
+    fData.append('pass', password)
+    fData.append('fName', firstName)
+    fData.append('lName', lastName)
+    fData.append('age', age)
+    fData.append('country', country)
+    fData.append('petPref', JSON.stringify(petPreferences))
+    fData.append('petChar', JSON.stringify(petCharacteristics))
+    axios ({
+      method: 'post',
+      url: '',  // replace '' with server url later
+      data: fData
+    })
+    .then(response => console.log(response))
+    .catch(error => alert(error));
   };
 
 
