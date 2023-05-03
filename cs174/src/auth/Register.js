@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Register.css";
 import logo from "./logo.png";
 import axios from "axios";
-import {Redirect} from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState("");
