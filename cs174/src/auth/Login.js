@@ -12,11 +12,12 @@ const Login = () => {
     // get the query string parameters
     const urlParams = new URLSearchParams(window.location.search);
 
-    // check if the login_failed parameter is present
-    if (urlParams.get('login_failed') === 'true') {
-      // display an error message
-      alert('Login failed. Please check your username and password and try again.');
-    }
+    setTimeout(function() {
+      if (urlParams.get('login_failed') === 'true') {
+        // display an error message
+        alert('Login failed. Please check your username and password and try again.');
+      }
+    }, 500); // Delay the alert by 2 seconds (2000 milliseconds)
   }, []);
   
   const handleUsernameChange = (e) => {
