@@ -74,29 +74,29 @@ const Register = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(
-      `Username: ${username} Password: ${password} First Name: ${firstName} Last Name: ${lastName} Age: ${age} Country: ${country} Pet Preferences: ${JSON.stringify(
-        petPreferences
-      )}`
-    );
-    // add code to send the login data to the server here
-    let fData = new FormData();
-    fData.append("user", username);
-    fData.append("pass", password);
-    fData.append("fName", firstName);
-    fData.append("lName", lastName);
-    fData.append("age", age);
-    fData.append("country", country);
-    fData.append("petPref", JSON.stringify(petPreferences));
-    fData.append("petChar", JSON.stringify(petCharacteristics));
-    axios({
-      method: "post",
-      url: "", // replace '' with server url later
-      data: fData,
-    })
-      .then((response) => console.log(response))
-      .catch((error) => alert(error));
+    // e.preventDefault();
+    // console.log(
+    //   `Username: ${username} Password: ${password} First Name: ${firstName} Last Name: ${lastName} Age: ${age} Country: ${country} Pet Preferences: ${JSON.stringify(
+    //     petPreferences
+    //   )}`
+    // );
+    // // add code to send the login data to the server here
+    // let fData = new FormData();
+    // fData.append("user", username);
+    // fData.append("pass", password);
+    // fData.append("fName", firstName);
+    // fData.append("lName", lastName);
+    // fData.append("age", age);
+    // fData.append("country", country);
+    // fData.append("petPref", JSON.stringify(petPreferences));
+    // fData.append("petChar", JSON.stringify(petCharacteristics));
+    // axios({
+    //   method: "post",
+    //   url: "", // replace '' with server url later
+    //   data: fData,
+    // })
+    //   .then((response) => console.log(response))
+    //   .catch((error) => alert(error));
   };
 
   return (
