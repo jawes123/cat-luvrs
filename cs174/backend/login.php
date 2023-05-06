@@ -21,7 +21,7 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
             if($user == $row["username"] && $pass == $row["password"]){
-                $url = 'http://localhost:3000/register';
+                $url = 'http://localhost:3000/home';
                 header( "Location: $url" );
             }
         }
