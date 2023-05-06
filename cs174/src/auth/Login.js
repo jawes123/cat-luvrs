@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 import logo from "./logo.png";
 import { Link } from "react-router-dom";
@@ -8,6 +8,17 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    // get the query string parameters
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // check if the login_failed parameter is present
+    if (urlParams.get('login_failed') === 'true') {
+      // display an error message
+      alert('Login failed. Please check your username and password and try again.');
+    }
+  }, []);
+  
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
