@@ -26,9 +26,8 @@
             }
         }
       } else {
-        echo '<script type="text/javascript">';
-        echo 'alert("User or password not found.")'; 
-        echo '</script>';
+        $url = 'http://localhost:3000/login?login_failed=true'; // set query parameter to indicate login failure
+        header("Location: $url");
       }
     
 
