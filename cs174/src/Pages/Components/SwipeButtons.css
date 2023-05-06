@@ -1,49 +1,37 @@
-.chatScreen__message {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .chatScreen__text {
-    margin-left: 10px;
-    background-color: lightgray;
-    padding: 15px;
-    border-radius: 20px;
-  }
-  
-  .chatScreen__timestamp {
-    text-align: center;
-    padding: 20px;
-    color: gray;
-  }
-  
-  .chatScreen__textUser {
-    margin-left: auto;
-    background-color: #29b3cd;
-    padding: 15px;
-    border-radius: 20px;
-    color: white;
-  }
-  
-  .chatScreen__input {
-    display: flex;
-    padding: 5px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    border-top: 1px solid lightgray;
-  }
-  
-  .chatScreen__inputField {
-    flex: 1;
-    padding: 10px;
-    border: none;
-  }
-  
-  .chatScreen__inputButton {
-    border: none;
-    margin-right: 20px;
-    background-color: white;
-    font-weight: bolder;
-    color: #fe3d71;
-  }
+.swipeButtons {
+  width: 90vw;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.swipeButtons .MuiIconButton-root {
+  background-color: white;
+  box-shadow: 0px 10px 53px 0px rgba(0, 0, 0, 0.3) !important;
+}
+
+.swipeButtons__repeat {
+  padding: 1vw !important;
+  color: #f5b748 !important;
+}
+
+.swipeButtons__left {
+  padding: 1vw !important;
+  color: #ec5e6f !important;
+  margin-right:1vw;
+}
+
+.swipeButtons__star {
+  padding: 1vw !important;
+  color: #62b4f9 !important;
+}
+
+.swipeButtons__right {
+  padding: 1vw !important;
+  color: #76e2b3 !important;
+}
+
+.swipeButtons__lightning {
+  padding: 1vw !important;
+  color: #915dd1 !important;
+}

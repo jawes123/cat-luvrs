@@ -1,8 +1,10 @@
 import './Home.css';
 import TinderCard from 'react-tinder-card';
-import { useState } from 'react';
+import { useState,useRef } from 'react';
 import ChatContainer from './Components/ChatContainer';
-import SwipeButtons from './Components/SwipeButtons';
+import CloseIcon from '@material-ui/icons/Close';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import { IconButton } from '@material-ui/core';
 
 
 
@@ -31,20 +33,34 @@ const Home = () => {
 
     ]
 const [lastDirection, setLastDirection] = useState()
+const cardRef = useRef();
+const [cardIndex,setCardIndex] = useState(0);
+
+
 const swiped = (direction, nameToDelete) =>{
     console.log('removing:' + nameToDelete)
     setLastDirection(direction)
+    console.log(cardIndex);
 }
 const outOfFrame = (name) => {
     console.log(name + 'left the screen!')
+    setCardIndex((prevState) => prevState + 1); // Update the card index state
+    
 }
+
+const handleClick = (dir)=> {
+    console.log(dir);
+    cardRef.current.swipe(dir);
+
+}
+
     return(
         <div className='dashboard'>
             <ChatContainer/>
             <div className="swipe-container">
                 <div className="card-container">
                     {characters.map((character) =>
-                    <TinderCard className='swipe' key={CharacterData.name} onSwipe={(dir) => swiped(dir, character.name)}onCardLeftScreen={() => outOfFrame(character.name)}>
+                    <TinderCard className='swipe' key={CharacterData.name} ref = {cardRef} preventSwipe = {[ 'up', 'down' ]} onSwipe={(dir) => swiped(dir, character.name)}onCardLeftScreen={() => outOfFrame(character.name)}>
                     <div style={{backgroundImage: 'url(' + character.url + ')'}} className='card'>
                     <h3>{character.name}</h3>
                     </div>
@@ -53,18 +69,20 @@ const outOfFrame = (name) => {
                     )}
                     <div className='swipe-info'>
                         {lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}
-
                     </div>
-                    
-
-
                 </div>
+                <div className = "swipeButtons">
+                    <IconButton className = "swipeButtons__left" onClick={() => handleClick("left")}>
+                        <CloseIcon fontSize = "large" />
+                    </IconButton>
+
+                    <IconButton className = "swipeButtons__right" onClick = {() => handleClick("right")}>
+                        <FavoriteIcon fontSize = "large" />
+                    </IconButton>
             </div>
-
-
-                <br /></div>
+        </div>
+    </div>
     )
-
 }
 
 export default Home;

@@ -11,7 +11,7 @@ const ChatContainer = () => {
 
 <div className="chat-buttons">
     <button className="option">Matches</button>
-    <button className="option">Adotion Details</button>
+    <button className="option">Adoption Details</button>
 </div>
         </div>
         <div className="chat-body">
