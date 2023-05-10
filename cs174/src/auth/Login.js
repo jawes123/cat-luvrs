@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Login.css";
 import logo from "./logo.png";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import {  useHistory } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     // get the query string parameters
@@ -17,7 +18,10 @@ const Login = () => {
         // display an error message
         alert('Login failed. Please check your username and password and try again.');
       }
-    }, 500); // Delay the alert by 2 seconds (2000 milliseconds)
+    }, 500);
+
+    history.push('/login');
+
   }, []);
   
   const handleUsernameChange = (e) => {
@@ -28,21 +32,7 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    // console.log(`Username: ${username} Password: ${password}`);
-    // // add code to send the login data to the server here
-    // let fData = new FormData()
-    // fData.append('user', username)
-    // fData.append('pass', password)
-    // axios ({
-    //   method: 'post',
-    //   url: '',  // replace '' with server url later
-    //   data: fData
-    // })
-    // .then(response => console.log(response))
-    // .catch(error => alert(error));
-  };
+  //http://cos-cs106.science.sjsu.edu/~014054599/project/login.php
 
   return (
     <div className="login">
@@ -55,9 +45,8 @@ const Login = () => {
             <div className="description">pet adoption matching site</div>
             <div className="login-form">
               <form
-                action="http://cos-cs106.science.sjsu.edu/~014054599/project/login.php"
+                action="http://localhost:8000/login.php"
                 method="post"
-                onSubmit={handleSubmit}
               >
                 <div className="form-group">
                   <label htmlFor="username">Username</label>

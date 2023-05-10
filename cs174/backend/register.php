@@ -101,6 +101,32 @@
         $energetic=0;
     }
 
+
+    // If none are selected, set all to true
+    if($dog === 0 && $cat === 0 && $bunnie === 0 && $fish === 0 && $gerbal === 0 && $bird === 0 && $reptile === 0)
+    {
+        $dog = 1;
+        $cat = 1;
+        $bunnie = 1;
+        $fish = 1;
+        $gerbal = 1;
+        $bird = 1;
+        $reptile = 1;
+    }
+
+    //If no characteristics are selected, set all to true
+    if($clever === 0 && $cute === 0 && $independent === 0 && $potty === 0 && $kid === 0 && $quiet === 0 && $energetic === 0)
+    {
+        $clever = 1;
+        $cute = 1;
+        $independent = 1;
+        $potty = 1;
+        $kid = 1;
+        $quiet = 1;
+        $energetic = 1;
+    }
+
+
     $sql = "INSERT INTO catluvrsdb.users
             (username, firstName, lastName, age, country, password, dog, cat, bunnies, fish, gerbal, bird, reptile, clever, cute, independent, potty, kid, quiet, energetic) 
             VALUES ('$user', '$first', '$last', '$age', '$country', '$pass', $dog, $cat, $bunnie, $fish, $gerbal, $bird, $reptile, $clever, $cute, $independent, $potty, $kid, $quiet, $energetic)";

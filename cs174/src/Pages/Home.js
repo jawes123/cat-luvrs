@@ -9,6 +9,22 @@ import { IconButton } from '@material-ui/core';
 
 
 const Home = () => {
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Parse the JSON string response into a JavaScript object
+            var result = JSON.parse(this.responseText);
+            
+            // Do something with the result
+            console.log(result);
+        }
+    };
+    xhr.open("GET", "http://localhost:8000/login.php", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send();
+
+
     const characters=[
         {
             name: 'Bruce',
