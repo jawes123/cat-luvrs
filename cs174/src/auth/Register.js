@@ -110,7 +110,7 @@ const Register = () => {
             <div className="description">Create Your Account</div>
             <div className="register-form">
               <form
-                action="http://localhost:8000/register.php"
+                action="http://cos-cs106.science.sjsu.edu/~014054599/project/login.php"
                 method="post"
                 onSubmit={handleSubmit}
               >
