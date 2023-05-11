@@ -25,16 +25,16 @@ const Home = () => {
     xhr.send();
 
 
-    const characters=[
+    const all_characters=[
         {
-            name: 'Bruce',
+            name: 'Tabby',
             index: 0,
-            url: 'https://i.imgur.com/qC0xM6M.png'
+            url: 'https://i.imgur.com/XRnjNpB.png'
         },
         {
-            name: 'Daisy',
+            name: 'Mumu',
             index: 1,
-            url: 'https://i.imgur.com/wcc6Y3C.png'
+            url: 'https://i.imgur.com/Q8sqMof.png'
         },
         {
             name: 'Cleo',
@@ -42,21 +42,26 @@ const Home = () => {
             url: 'https://i.imgur.com/UK4N9yr.png'
         },
         {
-            name: 'Mumu',
+            name: 'Daisy',
             index: 3,
-            url: 'https://i.imgur.com/Q8sqMof.png'
+            url: 'https://i.imgur.com/wcc6Y3C.png'
         },
         {
-            name: 'Tabby',
+            name: 'Bruce',
             index: 4,
-            url: 'https://i.imgur.com/XRnjNpB.png'
+            url: 'https://i.imgur.com/qC0xM6M.png'
         }
-
     ]
+
+    const matched_ids = decodeURIComponent(document.cookie).split('=')[1].trim().split(' ');
+    const characters = [];
+    matched_ids.forEach(element => characters.push(all_characters[element-1]));
+    console.log(characters);
+
+
 const [lastDirection, setLastDirection] = useState()
 const [cardIndex,setCardIndex] = useState(characters.length -1);
 const cardRef = useRef(null);
-
 
 const swiped = (direction, nameToDelete) =>{
     console.log('removing:' + nameToDelete)
