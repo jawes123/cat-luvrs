@@ -18,7 +18,7 @@ const MatchesDisplay = (props) => {
             <>
                 <div className = "petInfo">
                     <h1>{pet.name}</h1>
-                    <h3>{pet.Details}</h3>
+                    <h3>{pet.details}</h3>
                     <button type="submit" className = "adoptBtn" onClick={openPopup}>Request Adoption</button>
                 </div>
                 <div>
