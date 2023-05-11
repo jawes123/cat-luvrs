@@ -1,0 +1,48 @@
+.match{
+    display:flex;
+    max-height:200px;
+    border-bottom: 3px solid #153335;
+    flex-direction: 'row-reverse';
+}
+
+.petInfo {
+    padding-left:15px;
+    flex-grow: 1;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    float:right;
+    border-radius:50%;
+}
+
+h1 {
+    margin-bottom:3px;
+    text-decoration: underline;
+}
+
+h3 {
+    margin-top:0px;
+    font-size:16px;
+    font-weight:600;
+    margin-left:3px;
+    padding-right:8px;
+}
+
+.adoptBtn {
+    background-color:#153335;
+    background-color: cover;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor:grab;
+    border-radius:15%;
+    font-weight:bold;
+  }
+  
+  .adoptBtn:hover {
+    background-color:rgb(135, 192, 104);
+  }
+  
