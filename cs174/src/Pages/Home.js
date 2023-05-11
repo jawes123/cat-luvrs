@@ -87,7 +87,10 @@ const handleClick = (dir)=> {
 
     return(
         <div className='dashboard'>
+
+            
             <ChatContainer likedPets = {likedPets}/>
+            
             <div className="swipe-container">
                 <div>                        {lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}</div>
                 <div className="card-container">
