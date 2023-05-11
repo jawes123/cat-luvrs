@@ -25,16 +25,16 @@ const Home = () => {
     xhr.send();
 
 
-    const characters=[
+    const all_characters=[
         {
-            name: 'Bruce',
+            name: 'Tabby',
             index: 0,
-            url: 'https://i.imgur.com/qC0xM6M.png'
+            url: 'https://i.imgur.com/XRnjNpB.png'
         },
         {
-            name: 'Daisy',
+            name: 'Mumu',
             index: 1,
-            url: 'https://i.imgur.com/wcc6Y3C.png'
+            url: 'https://i.imgur.com/Q8sqMof.png'
         },
         {
             name: 'Cleo',
@@ -42,26 +42,37 @@ const Home = () => {
             url: 'https://i.imgur.com/UK4N9yr.png'
         },
         {
-            name: 'Mumu',
+            name: 'Daisy',
             index: 3,
-            url: 'https://i.imgur.com/Q8sqMof.png'
+            url: 'https://i.imgur.com/wcc6Y3C.png'
         },
         {
-            name: 'Tabby',
+            name: 'Bruce',
             index: 4,
-            url: 'https://i.imgur.com/XRnjNpB.png'
+            url: 'https://i.imgur.com/qC0xM6M.png'
         }
-
     ]
+
+    const matched_ids_string = decodeURIComponent(document.cookie).split('=')[1];
+    const characters = [];
+    if(matched_ids_string != undefined){
+        const matched_ids = matched_ids_string.trim().split(' ');
+        matched_ids.forEach(element => characters.push(all_characters[element-1]));
+        console.log(characters);
+    }
+
+
 const [lastDirection, setLastDirection] = useState()
 const [cardIndex,setCardIndex] = useState(characters.length -1);
+const [likedPets, setLikedPets] = useState([]);
 const cardRef = useRef(null);
 
-
-const swiped = (direction, nameToDelete) =>{
-    console.log('removing:' + nameToDelete)
+const swiped = (direction, character) =>{
     setLastDirection(direction)
     console.log(cardIndex);
+    if (direction === 'right') {
+        setLikedPets(prevState => [...prevState, character]);
+    }
     if(cardIndex > 0)
         setCardIndex((prevState) => prevState - 1); // Update the card index state
 }
@@ -76,14 +87,14 @@ const handleClick = (dir)=> {
 
     return(
         <div className='dashboard'>
-            <ChatContainer/>
+            <ChatContainer likedPets = {likedPets}/>
             <div className="swipe-container">
                 <div>                        {lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}</div>
                 <div className="card-container">
                     {characters.map((character, index) =>
                     <TinderCard className='swipe' key={character.name} ref={index === cardIndex ? cardRef : null} 
                         cardswipeRequirementType = "position" preventSwipe = {[ 'up', 'down' ]} 
-                        onSwipe={(dir) => swiped(dir, character.name)}onCardLeftScreen={() => outOfFrame(character.name)}>
+                        onSwipe={(dir) => swiped(dir, character)}>
                     
                         <div style={{backgroundImage: 'url(' + character.url + ')'}} className='card'>
                             <h3>{character.name}</h3>
