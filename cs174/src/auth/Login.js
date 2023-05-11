@@ -45,7 +45,7 @@ const Login = () => {
             <div className="description">pet adoption matching site</div>
             <div className="login-form">
               <form
-                action="http://cos-cs106.science.sjsu.edu/~014054599/project/login.php"
+                action="http://localhost:8000/login.php"
                 method="post"
               >
                 <div className="form-group">
