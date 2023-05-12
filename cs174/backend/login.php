@@ -1,5 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin: http://localhost:3000');
+header('Access-Control-Allow-Origin: https://earnest-selkie-bee4d4.netlify.app/');
 header("Access-Control-Allow-Methods: GET, POST");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Content-Type: application/json');
@@ -40,19 +40,19 @@ if ($result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
         if ($user == $row["username"] && $pass == $row["password"]) {
-            $url = 'http://localhost:3000/home';
             $result2 = $conn->query($pets);
             $rows = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             $value = '';
             foreach ($rows as $row) {
-                $value = $value . ' ' . $row['id'];
+                $value = $value . $row['id'];
             }
-            setcookie("pets", $value);
+            $url = 'https://earnest-selkie-bee4d4.netlify.app/home' . '?pets=' . $value;
+            //setcookie("pets", $value);
             header("Location: $url");
         }
     }
 } else {
-    $url = 'http://localhost:3000/login?login_failed=true'; // set query parameter to indicate login failure
+    $url = 'https://earnest-selkie-bee4d4.netlify.app/login?login_failed=true'; // set query parameter to indicate login failure
     header("Location: $url");
 }
 ?>

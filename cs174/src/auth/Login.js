@@ -9,6 +9,10 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const history = useHistory();
 
+  if(document.cookie != ''){
+    window.location.href = '/home';
+  }
+
   useEffect(() => {
     // get the query string parameters
     const urlParams = new URLSearchParams(window.location.search);

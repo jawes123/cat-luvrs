@@ -58,13 +58,14 @@ const Home = () => {
         }
     ]
 
-    const matched_ids_string = decodeURIComponent(document.cookie).split('=')[1];
+    const matched_ids_string = window.location.href;
+    console.log(matched_ids_string);
     const characters = [];
-    if(matched_ids_string != undefined){
-        const matched_ids = matched_ids_string.trim().split(' ');
-        matched_ids.forEach(element => characters.push(all_characters[element-1]));
-        console.log(characters);
-    }
+    // if(matched_ids_string != undefined){
+    //     const matched_ids = matched_ids_string.trim().split(' ');
+    //     matched_ids.forEach(element => characters.push(all_characters[element-1]));
+    //     console.log(characters);
+    // }
 
 
 const [lastDirection, setLastDirection] = useState()
