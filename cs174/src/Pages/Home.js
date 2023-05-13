@@ -59,7 +59,7 @@ const Home = () => {
     ]
 
     const matched_ids_string = window.location.href;
-    console.log(matched_ids_string);
+    console.log(typeof(matched_ids_string));
     const characters = [];
     // if(matched_ids_string != undefined){
     //     const matched_ids = matched_ids_string.trim().split(' ');
